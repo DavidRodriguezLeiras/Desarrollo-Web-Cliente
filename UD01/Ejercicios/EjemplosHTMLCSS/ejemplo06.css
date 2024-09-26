@@ -1,0 +1,36 @@
+#primero {
+    border: 1px solid black;
+    background-color: greenyellow;
+    height: 90px;
+    width: 150px;
+}
+
+/*Estilos sobre el div "primero" al pulsar el raton sobre el*/
+#primero:active {
+    background-color: purple;
+}
+
+.codigo::before {
+    content: "Codigo: ";
+}
+
+/*Estilos para aplicar a checkbox que estan seleccionados*/
+input[type="checkbox"]:checked {
+    box-shadow:0 0 0 3px red;
+}
+/*Estilo que aplica al primer elemeto hijo de ese tipo*/
+p:first-child {
+    font-weight: bold;
+}
+
+/*Aplica a la primera letra de el tipo indicado*/
+p::first-letter {
+    font-size: 20pt;
+}
+
+/*Aplicamos el estilo a la primera ocurrencia 
+ del elemento indicado en cada nivel (menos hijos de body)*/
+p:first-of-type {
+    color: blue;
+}
+
