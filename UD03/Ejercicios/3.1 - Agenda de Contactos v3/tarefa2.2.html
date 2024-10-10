@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="gl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axenda de Contactos v2</title>
+    <link rel="stylesheet" type="text/css" href="tarefa2.2.css">
+</head>
+
+<body>
+    <div class="contedor-principal">
+        <!-- Cabeceira con título -->
+        <header>
+            <h1>AXENDA DE CONTACTOS</h1>
+        </header>
+
+        <!-- Contido principal da vista con dúas columnas -->
+        <div class="vista-axenda">
+
+            <!-- Formulario para engadir/buscar contactos -->
+            <section id="formulario-seccion">
+                <h2>Formulario de Alta e Busca</h2>
+                <form id="formulario-contactos" onsubmit="event.preventDefault()">
+                    <label for="nome" id="lnome">Nome:</label>
+                    <input type="text" id="nome" name="nome">
+
+                    <label for="apelidos" id="lapelidos">Apelidos:</label>
+                    <input type="text" id="apelidos" name="apelidos">
+
+                    <label for="telefono" id="ltelefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono">
+
+                    <label for="email" id="lemail">E-mail:</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="enderezo" id="lenderezo">Enderezo:</label>
+                    <input type="text" id="enderezo" name="enderezo">
+
+                    <label for="comentarios" id="lcomentarios">Comentarios:</label>
+                    <textarea id="comentarios" name="comentarios"></textarea>
+
+                    <button type="button" id="engadir" onclick="engadirContacto()">Engadir</button>
+                    <button type="button" id="buscar" onclick="buscarContacto()">Buscar</button>
+                    <button type="button" id="modificar" onclick="modificarContacto()">Modificar</button>
+                    <button type="button" id="eliminar" onclick="eliminarContacto()">Eliminar</button>
+                </form>
+            </section>
+
+            <!-- Listaxe de contactos -->
+            <section id="listaxe-seccion">
+                <h2>Lista de Contactos</h2>
+                <div id="listaxe-contactos"></div>
+            </section>
+        </div>
+    </div>
+
+    <script language="JavaScript" src="tarefa2.2.js"></script>
+</body>
+
+</html>
