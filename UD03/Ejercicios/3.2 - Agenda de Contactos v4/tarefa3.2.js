@@ -65,6 +65,16 @@ var codigosPostalesEspana = [
     { nombre: "Ceuta", cp: "51001" },
     { nombre: "Melilla", cp: "52001" }
 ];
+//habilito IndexedDB
+var dbContactos = window.indexedDB;
+//Creamos la BD ListaContactos o la abrimos si ya existe.
+var solicitud = dbContactos.open("ListaContactos");
+
+//Realizamos la solicitud de onupgradeneeded y guardamos el resultado en la variable basedatos, que usaremos para realizar las operaciones sobre la BD.
+solicitud.onupgradeneeded = () => {
+    var basedatos = solicitud.result;
+    let listaCOntactos
+}
 
 /*
     Funcion para crear mensajes de error, se le pasa como parametro un elemento html y un mensaje.
@@ -262,7 +272,7 @@ function actualizarListaContactos() {
     Funcion engadirContacto(), primero almacenamos en variables todos los valores de los inputs, el formulario y el div donde listaremos los contactos
     posteriormente, añadimos al array listaContactos un nuevo objeto rellenando los atributos del objeto con los datos obtenidos.
 */
-function engadirContacto() {
+document.getElementById("engadir").addEventListener("click",() => {
     limpiarErrores(document.getElementById("lnome").id);
     var nome = document.getElementById('nome');
     var apelidos = document.getElementById('apelidos');
@@ -297,7 +307,7 @@ function engadirContacto() {
     }
     actualizarListaContactos();
     
-};
+});
 
 /*
     *PRACTICA ANTERIOR*
@@ -310,7 +320,7 @@ function engadirContacto() {
     con el atributo "nome" tambien en minusculas de cada objeto del array, una vez encuentra una coincidencia, hago copia del objeto que esta iterando 
     a la variable "busqueda" para posteriormente pasar el valor de cada atributo de "busqueda" al valor de cada campo del formulario.
 */
-function buscarContacto() {
+document.getElementById("buscar").addEventListener("click",() => {
     limpiarErrores(document.getElementById("lnome").id);
     var nome = document.getElementById('nome').value;
     var busqueda;
@@ -337,14 +347,14 @@ function buscarContacto() {
         crearError(document.getElementById("lapelidos"), "* Campo obligatorio para poder buscar.");
     }
     
-};
+});
 
 /*
     *PRACTICA ANTERIOR*
     Extraigo el valor del input con id "nombre" , termino de validar los requerimientos para modificar, compruebo si el nombre coincide con el atributo nombre de algun objeto del
     array listaContactos,si no es asi, muestro un error indicando que ese contacto no existe, si es asi, modifico los campos que contengan algun valor. 
 */ 
-function modificarContacto() {
+document.getElementById("modificar").addEventListener("click", () => {
     limpiarErrores(document.getElementById("lnome").id);
     var datos = [document.getElementById('nome').value,
     document.getElementById('apelidos').value,
@@ -355,7 +365,7 @@ function modificarContacto() {
     ];
     if (checknome && checkapelidos && checktelefono) { // APARTADO 5: terminamos la validacion.
         if (!comprobarContactoExistente(datos[0])) {  //APARTADO 4: no se puede modificar un contacto que no existe.
-            for (let i = 0; i < listaContactos.length; i++) { 
+            for (let i = 0; i < listaContactos.length; i++) {
                 if (listaContactos[i].nome == datos[0]) {
                     if (datos[1] != "") {
                         listaContactos[i].apelidos = datos[1];
@@ -378,10 +388,10 @@ function modificarContacto() {
         } else { //APARTADO 4: error a mostrar si el contacto no existe.
             crearError(document.getElementById("lnome"), "* Este contacto no se puede modificar, no existe");
         }
-    }else {//APARTADO 5: errores que se muestran si no pasan la validacion
+    } else {//APARTADO 5: errores que se muestran si no pasan la validacion
         if (!checknome) {
             limpiarErrores(document.getElementById("lapelidos").id);
-            crearError(document.getElementById("lapelidos"), "* Para modificar, este campo es obligatorio.");            
+            crearError(document.getElementById("lapelidos"), "* Para modificar, este campo es obligatorio.");
         }
         if (!checkapelidos) {
             limpiarErrores(document.getElementById("ltelefono").id);
@@ -393,7 +403,7 @@ function modificarContacto() {
         }
     }
     actualizarListaContactos();
-}
+});
 
 /*
     PRACTICA ANTERIOR
@@ -402,7 +412,7 @@ function modificarContacto() {
     busco ocurrencias de algun objeto cuyo atributo nombre sea igual que la variable "nome"
     cuando encuentro una ocurrencia, haciendo uso del contador del for, uso el metodo splice para eliminar el objeto del array.
 */
-function eliminarContacto() {
+document.getElementById("eliminar").addEventListener("click",() => {
     limpiarErrores(document.getElementById("lnome").id);
     var nome = document.getElementById('nome').value;
     if (checknome) { //APARTADO 5: nome es un campo requerido para poder eliminar.
@@ -419,6 +429,6 @@ function eliminarContacto() {
     } else { //APARTADO 5: error que se muestra si no pasa la validacion.
         crearError(document.getElementById("lapelidos"), "* Campo obligatorio para poder borrar.");
     }
-};
+});
 
 
