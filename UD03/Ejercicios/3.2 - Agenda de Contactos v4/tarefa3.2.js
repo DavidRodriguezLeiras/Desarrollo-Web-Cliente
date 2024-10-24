@@ -1,5 +1,4 @@
 //Inicializo todas as variables que necesitare.
-var listaContactos = [];
 var formulario = document.getElementById('formulario-contactos');
 var codPostal = document.getElementById("codPostal");
 var provincias = document.getElementById("provincia");
@@ -11,60 +10,87 @@ var telefono = document.getElementById("telefono");
 var checktelefono = false;
 var email = document.getElementById("email");
 var checkemail = false;
-var codigosPostalesEspana = [
-    { nombre: "Alava", cp: "01001" },
-    { nombre: "Albacete", cp: "02001" },
-    { nombre: "Alicante", cp: "03001" },
-    { nombre: "Almeria", cp: "04001" },
-    { nombre: "Asturias", cp: "33001" },
-    { nombre: "Avila", cp: "05001" },
-    { nombre: "Badajoz", cp: "06001" },
-    { nombre: "Baleares", cp: "07001" },
-    { nombre: "Barcelona", cp: "08001" },
-    { nombre: "Burgos", cp: "09001" },
-    { nombre: "Caceres", cp: "10001" },
-    { nombre: "Cadiz", cp: "11001" },
-    { nombre: "Cantabria", cp: "39001" },
-    { nombre: "Castellon", cp: "12001" },
-    { nombre: "Ciudad Real", cp: "13001" },
-    { nombre: "Cordoba", cp: "14001" },
-    { nombre: "Cuenca", cp: "16001" },
-    { nombre: "Girona", cp: "17001" },
-    { nombre: "Granada", cp: "18001" },
-    { nombre: "Guadalajara", cp: "19001" },
-    { nombre: "Guipuzcoa", cp: "20001" },
-    { nombre: "Huelva", cp: "21001" },
-    { nombre: "Huesca", cp: "22001" },
-    { nombre: "Jaen", cp: "23001" },
-    { nombre: "La Coruna", cp: "15001" },
-    { nombre: "La Rioja", cp: "26001" },
-    { nombre: "Las Palmas", cp: "35001" },
-    { nombre: "Leon", cp: "24001" },
-    { nombre: "Lerida", cp: "25001" },
-    { nombre: "Lugo", cp: "27001" },
-    { nombre: "Madrid", cp: "28001" },
-    { nombre: "Malaga", cp: "29001" },
-    { nombre: "Murcia", cp: "30001" },
-    { nombre: "Navarra", cp: "31001" },
-    { nombre: "Orense", cp: "32001" },
-    { nombre: "Palencia", cp: "34001" },
-    { nombre: "Pontevedra", cp: "36001" },
-    { nombre: "Salamanca", cp: "37001" },
-    { nombre: "Segovia", cp: "40001" },
-    { nombre: "Sevilla", cp: "41001" },
-    { nombre: "Soria", cp: "42001" },
-    { nombre: "Tarragona", cp: "43001" },
-    { nombre: "Santa Cruz de Tenerife", cp: "38001" },
-    { nombre: "Teruel", cp: "44001" },
-    { nombre: "Toledo", cp: "45001" },
-    { nombre: "Valencia", cp: "46001" },
-    { nombre: "Valladolid", cp: "47001" },
-    { nombre: "Vizcaya", cp: "48001" },
-    { nombre: "Zamora", cp: "49001" },
-    { nombre: "Zaragoza", cp: "50001" },
-    { nombre: "Ceuta", cp: "51001" },
-    { nombre: "Melilla", cp: "52001" }
-];
+
+function dbProvincias() {
+    return new Promise((resolve, reject) => {
+        let solicitudApertura = window.indexedDB.open("PROVINCIAS", 1);
+
+        solicitudApertura.onupgradeneeded = (evento) => {
+            evento.preventDefault();
+            let baseDatos = evento.target.result;
+            baseDatos.createObjectStore("provincias",{keyPath:"nombre"});
+        }
+
+        solicitudApertura.onsuccess = (evento) => {
+            evento.preventDefault();
+            let baseDatos = evento.target.result;
+            let provincias = baseDatos.transaction(["provincias"], "readwrite").objectStore("provincias");
+            let codigosPostalesEspana = [
+                    { nombre: "Alava", cp: "01001" },
+                    { nombre: "Albacete", cp: "02001" },
+                    { nombre: "Alicante", cp: "03001" },
+                    { nombre: "Almeria", cp: "04001" },
+                    { nombre: "Asturias", cp: "33001" },
+                    { nombre: "Avila", cp: "05001" },
+                    { nombre: "Badajoz", cp: "06001" },
+                    { nombre: "Baleares", cp: "07001" },
+                    { nombre: "Barcelona", cp: "08001" },
+                    { nombre: "Burgos", cp: "09001" },
+                    { nombre: "Caceres", cp: "10001" },
+                    { nombre: "Cadiz", cp: "11001" },
+                    { nombre: "Cantabria", cp: "39001" },
+                    { nombre: "Castellon", cp: "12001" },
+                    { nombre: "Ciudad Real", cp: "13001" },
+                    { nombre: "Cordoba", cp: "14001" },
+                    { nombre: "Cuenca", cp: "16001" },
+                    { nombre: "Girona", cp: "17001" },
+                    { nombre: "Granada", cp: "18001" },
+                    { nombre: "Guadalajara", cp: "19001" },
+                    { nombre: "Guipuzcoa", cp: "20001" },
+                    { nombre: "Huelva", cp: "21001" },
+                    { nombre: "Huesca", cp: "22001" },
+                    { nombre: "Jaen", cp: "23001" },
+                    { nombre: "La Coruna", cp: "15001" },
+                    { nombre: "La Rioja", cp: "26001" },
+                    { nombre: "Las Palmas", cp: "35001" },
+                    { nombre: "Leon", cp: "24001" },
+                    { nombre: "Lerida", cp: "25001" },
+                    { nombre: "Lugo", cp: "27001" },
+                    { nombre: "Madrid", cp: "28001" },
+                    { nombre: "Malaga", cp: "29001" },
+                    { nombre: "Murcia", cp: "30001" },
+                    { nombre: "Navarra", cp: "31001" },
+                    { nombre: "Orense", cp: "32001" },
+                    { nombre: "Palencia", cp: "34001" },
+                    { nombre: "Pontevedra", cp: "36001" },
+                    { nombre: "Salamanca", cp: "37001" },
+                    { nombre: "Segovia", cp: "40001" },
+                    { nombre: "Sevilla", cp: "41001" },
+                    { nombre: "Soria", cp: "42001" },
+                    { nombre: "Tarragona", cp: "43001" },
+                    { nombre: "Santa Cruz de Tenerife", cp: "38001" },
+                    { nombre: "Teruel", cp: "44001" },
+                    { nombre: "Toledo", cp: "45001" },
+                    { nombre: "Valencia", cp: "46001" },
+                    { nombre: "Valladolid", cp: "47001" },
+                    { nombre: "Vizcaya", cp: "48001" },
+                    { nombre: "Zamora", cp: "49001" },
+                    { nombre: "Zaragoza", cp: "50001" },
+                    { nombre: "Ceuta", cp: "51001" },
+                    { nombre: "Melilla", cp: "52001" }
+                ];
+                codigosPostalesEspana.forEach(element => {
+                    provincias.add(element);
+                });
+            let objetos = provincias.getAll();
+            resolve(objetos.result);    
+        }
+        solicitudApertura.error = () => {
+            reject("Error al abrir la BD de PROVINCIAS");
+        }
+    })
+}
+
 //habilito IndexedDB
 var dbContactos = window.indexedDB;
 //Creamos la BD ListaContactos o la abrimos si ya existe.
@@ -108,16 +134,23 @@ function limpiarErrores(identificador) {
     A continuacion, iteramos cada elemento del array codigosPostalesEspana y creamos un elemento de tipo opcion en cada iteracion,
     a este elemento se le da el valor del atributo cp del objeto que esta iterando y su textContent sera el atributo nombre.
 */
-var opcionVacia = document.createElement("option");
 
-provincias.appendChild(opcionVacia);
-codigosPostalesEspana.forEach((elemento) => {
-    let opcion = document.createElement("option");
-    opcion.value = elemento.cp;
-    opcion.textContent = elemento.nombre;
-    opcion.id = elemento.nombre;
-    provincias.appendChild(opcion);
-})
+dbProvincias()
+    .then((provinciasEspana) => {
+        var opcionVacia = document.createElement("option");
+        provincias.appendChild(opcionVacia);
+        console.log(provinciasEspana);
+        provinciasEspana.forEach((elemento) => {
+            let opcion = document.createElement("option");
+            opcion.value = elemento.cp;
+            opcion.textContent = elemento.nombre;
+            opcion.id = elemento.nombre;
+            provincias.appendChild(opcion);
+        });
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 
 /*
     APARTADO 2:
