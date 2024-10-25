@@ -23,16 +23,7 @@ function dbProvincias() {
 
         solicitudApertura.onsuccess = (evento) => {
             evento.preventDefault();
-            resolve(evento.target.result);//Devuelvo la referencia de la apertura de la BBDD PROVINCIAS    
-        }
-        solicitudApertura.error = () => {
-            reject("Error al abrir la BD de PROVINCIAS");
-        }
-    })
-}
-function devolverProvincias(){
-    return dbProvincias().then((baseDatos) => {//Llamamos a la funcion que nos devuelve la referencia a la BD PROVINCIAS
-        return new Promise((resolve, reject) => {
+            let baseDatos = evento.target.result;
             let transaccion = baseDatos.transaction(["provincias"], "readwrite").objectStore("provincias"); // Abrimos una transaccion de lectura/escritura al almacen de objetos "provincias"
             let codigosPostalesEspana = [
                 { nombre: "Alava", cp: "01001" },
@@ -105,12 +96,12 @@ function devolverProvincias(){
             }
             transaccion.onerror = () => {
                 reject("Error al introducir los objetos en IndexedDB");
-            };
-        })
+            };    
+        }
+        solicitudApertura.error = () => {
+            reject("Error al abrir la BD de PROVINCIAS");
+        }
     })
-    .catch((error) => {
-        console.log(error);
-    });
 }
 
 //habilito IndexedDB
@@ -157,7 +148,7 @@ function limpiarErrores(identificador) {
     a este elemento se le da el valor del atributo cp del objeto que esta iterando y su textContent sera el atributo nombre.
 */
 
-devolverProvincias()
+dbProvincias()
     .then((provinciasEspana) => {
         var opcionVacia = document.createElement("option");
         provincias.appendChild(opcionVacia);
