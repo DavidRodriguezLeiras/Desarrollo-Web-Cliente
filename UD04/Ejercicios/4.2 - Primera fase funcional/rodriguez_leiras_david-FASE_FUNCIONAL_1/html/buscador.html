@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/img/vibe_logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/prototipos.css">
+    <title>Vibe - Buscador</title>
+</head>
+<body>
+    <!--Contenedor general de la página-->
+    <div class="contenedorBuscador">
+        <!--Contenedor del Header-->
+        <div class="contenedorMenu">
+            <div id="contenedorLogoMenu">
+                <a href="iniciousuario.html"><img src="../media/img/vibe_logo.svg" alt="logo de Vibe"></a>
+                <h1>Vibe</h1>
+            </div>
+            <div id="contenedorBotonesMenu">
+                <a href="iniciousuario.html"><button>Inicio</button></a>
+                <a href="listasreproduccion.html"><button>Mis listas de reproduccion</button></a>
+                <a href="buscador.html"><button class="estoyAqui">Buscar</button></a>
+                <a href="micontenido.html"><button>Mi contenido</button></a>
+            </div>
+            <div id="contenedorOpciones">
+                <a href="perfilusuario.html"><button>Perfil</button></a>
+                <a href="../index.html"><button>Salir</button></a>
+            </div>
+        </div>
+        <!--Contenedor del contenido principal de la página, dividido en 3 columnas y 2 filas-->
+        <div class="contenedorBuscadorBody">
+            <!--Contenedor del input de buscar , ocupa las 3 columnas en la fila 1-->
+            <div id="buscador">
+                <input type="text" placeholder="Busca artistas, listas de reproduccion, canciones...">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                  </svg>
+            </div>
+            <!--Contenedor de los resultados , ocupa la fila 2 y contiene 3 divs, cada uno en una columna, para mostrar resultados de artistas, listas y canciones-->
+            <div id="resultadoBuscador">
+                <div id="resultadoArtista">
+                    <div id="galeriaResultadoArtistas">
+                        <div id="tituloArtista">
+                            <h2>Artistas</h2>
+                        </div>
+                        <div id="artista">
+                            <a href="vistaartista.html"><img src="../media/img/slipknot.jpg"></a>
+                            <h2>Slipknot</h2>
+                        </div>
+                        <div id="artista">
+                            <a href="vistaartista.html"><img src="../media/img/bmth.jpg"></a>
+                            <h2>Bring me the horizon</h2>
+                        </div>
+                        <div id="artista">
+                            <a href="vistaartista.html"><img src="../media/img/herdeiros.jpg"></a>
+                            <h2>Herdeiros da Crus</h2>
+                        </div>
+                        <div id="artista">
+                            <a href="vistaartista.html"><img src="../media/img/eminem.jpg"></a>
+                            <h2>Eminem</h2>
+                        </div>
+                        <div id="artista">
+                            <a href="vistaartista.html"><img src="../media/img/offspring.jpg"></a>
+                            <h2>The Offspring</h2>
+                        </div>
+                        <div id="artista">
+                            <a href="vistaartista.html"><img src="../media/img/brunomars.jpg"></a>
+                            <h2>Bruno Mars</h2>
+                        </div>
+                    </div>
+                </div>
+                <div id="resultadoListas">
+                    <div id="tituloListas">
+                        <h2>Listas de reproduccion</h2>
+                    </div>
+                    <div id="galeriaListas">
+                        <button class="acordeon" id="acordeonBuscador">Lista 1<img id="anadirLista" src="../media/img/plus-lg.svg"></button>
+                        <div id="listaReproduccion">
+                            <div id="cancion" class="cancionBuscador">
+                                <div id="cancionImagen">
+                                    <img src="../media/img/brunomars.jpg">
+                                </div>
+                                <div id="cancionInfo">
+                                    <h3>Talking to the Moon</h3>
+                                    <p>Bruno Mars</p>
+                                </div>
+                                <div class="buscador" id="cancionAcciones">
+                                    <img src="../media/img/plus-lg.svg">
+                                </div>
+                            </div>
+                            <div id="cancion" class="cancionBuscador">
+                                <div id="cancionImagen">
+                                    <img src="../media/img/machinehead.jpg">
+                                </div>
+                                <div id="cancionInfo">
+                                    <h3>Is there anybody there</h3>
+                                    <p>Machine Head</p>
+                                </div>
+                                <div class="buscador" id="cancionAcciones">
+                                    <img src="../media/img/plus-lg.svg">
+                                </div>
+                            </div>
+                            <div id="cancion" class="cancionBuscador">
+                                <div id="cancionImagen">
+                                    <img src="../media/img/herdeiros.jpg">
+                                </div>
+                                <div id="cancionInfo">
+                                    <h3>Recambios Tucho</h3>
+                                    <p>Herdeiros da Crus</p>
+                                </div>
+                                <div class="buscador" id="cancionAcciones">
+                                    <img src="../media/img/plus-lg.svg">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="acordeon" id="acordeonBuscador">Lista 2<img id="anadirLista" src="../media/img/plus-lg.svg"></button>
+                        <div id="listaReproduccion">
+                            <div id="cancion" class="cancionBuscador">
+                                <div id="cancionImagen">
+                                    <img src="../media/img/usuario-generica.jpg">
+                                </div>
+                                <div id="cancionInfo">
+                                    <h3>Titulo cancion</h3>
+                                    <p>Artista</p>
+                                </div>
+                                <div class="buscador" id="cancionAcciones">
+                                    <img src="../media/img/plus-lg.svg">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="acordeon" id="acordeonBuscador">Lista 3<img id="anadirLista" src="../media/img/plus-lg.svg"></button>
+                        <div id="listaReproduccion">
+                            <div id="cancion" class="cancionBuscador">
+                                <div id="cancionImagen">
+                                    <img src="../media/img/usuario-generica.jpg">
+                                </div>
+                                <div id="cancionInfo">
+                                    <h3>Titulo cancion</h3>
+                                    <p>Artista</p>
+                                </div>
+                                <div class="buscador" id="cancionAcciones">
+                                    <img src="../media/img/plus-lg.svg">
+                                </div>
+                            </div>
+                            <div id="cancion" class="cancionBuscador">
+                                <div id="cancionImagen">
+                                    <img src="../media/img/usuario-generica.jpg">
+                                </div>
+                                <div id="cancionInfo">
+                                    <h3>Titulo cancion</h3>
+                                    <p>Artista</p>
+                                </div>
+                                <div class="buscador" id="cancionAcciones">
+                                    <img src="../media/img/plus-lg.svg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="resultadoCanciones">
+                    <div id="cancionesEncontradas">
+                        <div id="tituloCanciones">
+                            <h2>Canciones</h2>
+                        </div>
+                        <div id="cancion" class="cancionBuscador">
+                            <div id="cancionImagen">
+                                <img src="../media/img/herdeiros.jpg">
+                            </div>
+                            <div id="cancionInfo">
+                                <h3>A cuadrilla de pepa a Loba</h3>
+                                <p>Herdeiros da Crus</p>
+                            </div>
+                            <div class="buscadorCancion" id="cancionAcciones">
+                                <img src="../media/img/plus-lg.svg">
+                            </div>
+                        </div>
+                        <div id="cancion" class="cancionBuscador">
+                            <div id="cancionImagen">
+                                <img src="../media/img/reno.jpg">
+                            </div>
+                            <div id="cancionInfo">
+                                <h3>Conspiranoid</h3>
+                                <p>Reno Renardo</p>
+                            </div>
+                            <div class="buscadorCancion" id="cancionAcciones">
+                                <img src="../media/img/plus-lg.svg">
+                            </div>
+                        </div>
+                        <div id="cancion" class="cancionBuscador">
+                            <div id="cancionImagen">
+                                <img src="../media/img/brunomars.jpg">
+                            </div>
+                            <div id="cancionInfo">
+                                <h3>Thats what I like</h3>
+                                <p>Bruno Mars</p>
+                            </div>
+                            <div class="buscadorCancion" id="cancionAcciones">
+                                <img src="../media/img/plus-lg.svg">
+                            </div>
+                        </div>
+                        <div id="cancion" class="cancionBuscador">
+                            <div id="cancionImagen">
+                                <img src="../media/img/slipknot.jpg">
+                            </div>
+                            <div id="cancionInfo">
+                                <h3>Duality</h3>
+                                <p>Slipknot</p>
+                            </div>
+                            <div class="buscadorCancion" id="cancionAcciones">
+                                <img src="../media/img/plus-lg.svg">
+                            </div>
+                        </div>
+                        <div id="cancion" class="cancionBuscador">
+                            <div id="cancionImagen">
+                                <img src="../media/img/eminem.jpg">
+                            </div>
+                            <div id="cancionInfo">
+                                <h3>Without Me</h3>
+                                <p>Emienm</p>
+                            </div>
+                            <div class="buscadorCancion" id="cancionAcciones">
+                                <img src="../media/img/plus-lg.svg">
+                            </div>
+                        </div>
+                        <div id="cancion" class="cancionBuscador">
+                            <div id="cancionImagen">
+                                <img src="../media/img/foofighters.jpg">
+                            </div>
+                            <div id="cancionInfo">
+                                <h3>The pretender</h3>
+                                <p>Foo Fighters</p>
+                            </div>
+                            <div class="buscadorCancion" id="cancionAcciones">
+                                <img src="../media/img/plus-lg.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Contenedor del reproductor de audio-->
+        <div class="reproductorMusica">
+            <audio controls>
+                <source src="" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <!--Pie de página-->
+    <footer>
+        <div class="footerInfo">
+            <div id="footerInfoLogo">
+                <img src="../media/img/vibe_logo.svg" alt="">
+            </div>
+            <div id="footerInfoTexto">
+                <h1>Vibe</h1>
+                <h2>info@musicwebplayer.com</h2>
+                <p>(+34)981 778 899</p>
+            </div>
+        </div>
+        <div class="footerAboutUs">
+            <h2>Sobre nosotros...</h2>
+            <a href="sobrenosotros.html">Sobre nosotros...</a>
+            <a href="mapaweb.html">Mapa web</a>
+        </div>
+        <div class="footerContactUs">
+            <h2>Hablamos?</h2>
+            <a href="contacto.html">Contacta con nosotros</a>
+            <div id="footerContactUsRRSS">
+                <a href="https://x.com/home" target="_blank"><img src="../media/img/twitter-x.svg" alt=""></a>
+                <a href="https://www.facebook.com/" target="_blank"><img src="../media/img/facebook.svg"
+                        alt=""></a>
+                <a href="https://www.linkedin.com/" target="_blank"><img src="../media/img/linkedin.svg"
+                        alt=""></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="../media/img/instagram.svg"
+                        alt=""></a>
+            </div>
+            <div id="contactUsAvisoLegal">
+                <a href="avisolegal.html">Aviso Legal</a>
+                <a href="politicaprivacidad.html">Politica de privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../scripts/acordeon.js"></script>
+</body>
+</html>
