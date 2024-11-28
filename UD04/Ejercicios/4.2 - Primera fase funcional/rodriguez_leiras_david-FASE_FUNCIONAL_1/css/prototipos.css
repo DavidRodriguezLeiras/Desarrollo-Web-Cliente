@@ -1,0 +1,1370 @@
+/* Estilos por nombre de etiqueta */
+/*Colores a usar
+    FONDO: #3C3744
+    TEXTO: #94BFBE
+*/
+
+/*SELECTORES DE ELEMENTOS GENERALES*/
+body{
+    background-color: #3c3744;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+input,textarea ,fieldset {
+  font-family: Helvetica;
+  font-size: 20px;
+  color:#94BFBE;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  background: transparent;
+  &:focus {
+    border-color:#94BFBE;
+  }
+  &:focus::placeholder{
+    color:#94BFBE;
+  } 
+}
+
+label {
+    color: #94BFBE;
+    font-family: Helvetica;
+    font-size: 20px;
+}
+
+p {
+    color: #94BFBE;
+}
+
+a,h3,h1,h2,p,li{
+    color: #94BFBE;
+    font-family: Helvetica;
+}
+
+/*Ocultamos los scrollbar*/
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+
+/*ESTILOS PARA EL INDEX.HTML*/
+/*Contenedor general de la pagina index.html*/
+.contenedorIndex {
+    display:grid;
+    grid-template-rows: repeat(auto);
+}
+
+/*Contenedor de cabezera de la pagina index.html*/
+.indexHeader {
+    grid-row: 1;
+    display:grid;
+    grid-template-columns: 170px auto;
+}
+
+/*Contenedor del logo de la cabezera*/
+#indexHeaderLogo {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 100px 50px;
+}
+#indexHeaderLogo>img{
+    width: 100px;
+}
+#indexHeaderLogo>h1{
+    margin-top: 35px;
+}
+
+/*Contenedor del menu de la cabezera*/
+#indexHeaderMenu {
+    grid-column:2;
+    display: flex;
+    justify-content: center;
+    gap:15px;
+}
+#indexHeaderMenu button {
+    margin-top: 20px;
+    height: 40px;
+    width: 150px;
+    border-radius: 14px;
+    background-color: #364652;
+    font-weight: bold;
+    color: #94BFBE;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none;
+    box-shadow:0 0 1em #94BFBE; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border:1px solid #94BFBE
+    }
+}
+
+.indexBody {
+    position: relative;
+    height: 80vh;
+
+}
+.indexBody video {
+    position: absolute;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Coloca el video en el fondo */
+}
+#indexBodyTexto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#indexBodyTexto h1{
+    margin-top: 100px;
+    max-width: 350px;
+    font-size: 35px;
+}
+#indexBodyRegisterBtn {
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #364652;
+    font-weight: bold;
+    color: #94BFBE;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none;
+    box-shadow:0 0 1em #94BFBE; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: 1px solid #94BFBE;
+    }
+}
+#indexBodyLoginBtn {
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: aqua;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none;
+    box-shadow:0 0 1em #94BFBE;
+    margin-right: 15px;
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: #364652;
+        color: white;
+    }
+}
+
+
+
+/*ESTILOS PARA EL MENU GENERAL */
+/* Contenedor del menu */
+.contenedorMenu {
+    grid-row: 1;
+    display:grid;
+    grid-template-columns: 170px auto 170px;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    background-color: #3c3744;
+}
+/*Contenedor del logo del menu*/
+#contenedorLogoMenu {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 100px 50px;
+    
+}
+#contenedorLogoMenu  img{
+    width: 100px;
+}
+#contenedorLogoMenu > h1{
+    margin-top: 35px;
+}
+/*Contenedor de los botones de perfil y salir del menu*/
+#contenedorBotonesMenu {
+    grid-column:2;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    margin-left: 23%;
+
+}
+#contenedorBotonesMenu button {
+    margin-left: 5px;
+    margin-top: 60px;
+    height: 40px;
+    width: 150px;
+    background-color: #364652;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #94BFBE;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none;
+    box-shadow:0 0 1em #94BFBE; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+        background:#364652;
+    }
+}
+
+/* Estilos para los botones del menu con la clase estoyAqui*/
+#contenedorBotonesMenu button.estoyAqui{
+    margin-left: 5px;
+    margin-top: 60px;
+    height: 40px;
+    width: 150px;
+    background-color:  #94BFBE;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #364652;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none;
+    box-shadow:0 0 1em #94BFBE; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+    }
+}
+
+#contenedorOpciones {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+#contenedorOpciones button {
+    margin-bottom: 5px;
+    height: 40px;
+    width: 150px;
+    background-color: #364652;
+    font-weight: bold;
+    color: #94BFBE;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none; 
+    box-shadow:0 0 1em #94BFBE;
+    border-radius: 5px; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+        background:#364652;
+    }
+}
+
+#contenedorOpciones button.estoyAqui {
+    margin-bottom: 5px;
+    height: 40px;
+    width: 150px;
+    background-color:  #94BFBE;
+    font-weight: bold;
+    color: #3c3744;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none; 
+    box-shadow:0 0 1em #94BFBE;
+    border-radius: 5px; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+        background:#364652;
+    }
+}
+
+/* ESTILOS PARA MICONTENIDO.HTML */
+.contenedorMiContenido{
+    display: grid;
+    grid-template-rows: repeat(auto);
+    min-height: 600px;
+}
+#miContenidoBody{
+    margin-top:150px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+#divAgregarCancion {
+    grid-column: 2 /2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#divAgregarCancion button {
+    height: 40px;
+    width: 150px;
+    background-color: #364652;
+    font-weight: bold;
+    transition: 0.4s;
+    color: #94BFBE;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none; 
+    border-radius: 5px; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+        background:#364652;
+    }
+}
+
+#formAgregarCancion {
+    grid-column: 2/2;
+    border:4px solid #94BFBE;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#formAgregarCancion form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:15px;
+}
+
+#formAgregarCancion form input {
+    width: 190px;
+}
+
+#formAgregarCancion form label{
+    height: 40px;
+    width: 190px;
+    margin-top: 15px;
+    background-color: #364652;
+    padding:14px;
+    font-weight: bold;
+    transition: 0.4s;
+    color: #94BFBE;
+    cursor: pointer;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none; 
+    border-radius: 5px; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+        background:#364652;
+    }
+
+}
+#formAgregarCancion form button {
+    height: 40px;
+    width: 150px;
+    background-color: #364652;
+    font-weight: bold;
+    transition: 0.4s;
+    color: #94BFBE;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none; 
+    border-radius: 5px; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+        background:#364652;
+    }
+}
+
+#ListadoMisCanciones {
+    grid-column: 2/2;
+}
+
+#ListadoMisCanciones #cancion {
+    width: 700px;
+    margin-left: 2%;
+}
+
+
+
+
+/* ESTILOS PARA perfilusuario.html */
+.contenedorPerfil {
+    margin-bottom: 300px;
+    
+}
+.contenedorPerfilBody {
+    display:grid;
+    grid-template-columns: 400px auto auto;
+    margin-top:150px;
+}
+
+.contenedorImagenPerfil {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.contenedorImagenPerfil img,form {
+    margin-top: 10px;
+}
+.contenedorImagenPerfil img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+}
+.contenedorImagenPerfil input {
+    width: 190px;
+}
+#contenedorDetallesUsuario {
+    margin-left: 200px;
+}
+
+#contenedorResetContrasena {
+    margin-left: 150px;
+    margin-top: 50px;
+    width: 400px;
+    
+}
+
+#contenedorResetContrasena form {
+    display:flex;
+    flex-direction: column;
+}
+
+#contenedorResetContrasena input {
+
+    width: 190px;
+    margin-bottom: 20px;
+}
+
+#contenedorResetContrasena button {
+    height: 40px;
+    width: 150px;
+    background-color: #364652;
+    font-weight: bold;
+    color: #94BFBE;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none; 
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+        background:#364652;
+    }
+}
+
+
+/* ESTILOS PARA INICIOUSUARIO.HTML */
+.contenedorInicioUsuario {
+    display:grid;
+    grid-template-rows: repeat(auto);
+    margin-top:150px;
+}
+
+#galeriaArtistas {
+    display:grid;
+    grid-template-columns: repeat(4, 150px);
+    padding-left: 34%;
+    row-gap: 15px;
+    overflow-y: scroll;
+}
+
+#galeriaArtistas > #artista {
+    display: flex;
+    flex-direction: column;
+    height: 192px;
+    width: 100px;
+    overflow: hidden;
+}
+
+@keyframes desplazartexto {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-200%);
+    }
+}
+#artista > h2 {
+    width: 80%;
+    white-space: nowrap;
+    &:hover {
+        animation-name: desplazartexto;
+        animation-iteration-count: infinite;
+        animation-duration: 2.5s;
+        animation-play-state: running;
+    }
+}
+
+#galeriaArtistas > #artista img {
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+
+/* ESTILOS PARA LISTASREPRODUCCION.HTML*/
+.contenedorListas {
+    margin-bottom: 245px;
+}
+.contenedorBodyListas {
+    display: grid;
+    grid-template-rows: repeat(auto);
+    margin-top:150px;
+    width: 70%;
+    margin-left: 20%;
+    overflow-y: scroll;
+}
+.contenedorBodyListas > h1 {
+    margin-left: 27%;
+}
+
+#galeriaListas {
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow:hidden;
+}
+
+.acordeon {
+    font-size: 17px;
+    margin-left: 10%;
+    background-color: #364652;
+    width: 65%;
+    color: #94BFBE;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 18px;
+    text-align: left;
+    border: transparent solid 1px;
+    outline: none;
+    transition: 0.4s;
+    &:hover {
+        border: #94BFBE solid 1px;
+    }
+}
+.active, .accordion:hover {
+    background-color: #94BFBE;
+    color:#364652;
+    font-weight: bold;
+}
+#listaReproduccion {
+    padding: 0 18px;
+    background-color: #3c3744;
+    max-height: 0;
+    overflow-y: hidden;
+    transition: max-height 0.2s ease-out;
+    
+}
+#cancion {
+    display: flex;
+    flex-direction: row;
+    width: 65%;
+    margin-left: 10%;
+    background-color: #364652;
+    border: 1px solid #94BFBE;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 100px;
+}
+#cancionImagen {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+#cancionImagen img {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+}
+
+#cancionInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 3%;
+    width: 550px;
+    height: 100px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+#cancionInfo h3{
+    width: 100%;
+    white-space: nowrap;
+    
+}
+
+#cancionAcciones {
+    display: flex;
+    justify-self:flex-end;
+    gap: 20px;
+}
+#cancionAcciones img {
+    width: 30px;
+    &:hover {
+        background-color: #94BFBE;
+    }
+}
+#divCrearLista button{
+    margin-top: 20px;
+    height: 40px;
+    width: 350px;
+    margin-left: 29%;
+    background-color: #364652;
+    color: #94BFBE;
+    border-radius: 5px;
+    border: transparent solid 1px;
+    &:hover {
+        background-color: #94BFBE;
+    }
+    &:active {
+        background-color: aqua;
+    }
+}
+
+/* ESTILOS PARA BUSCADOR.HTML */
+.contenedorBuscador {
+    display:grid;
+    grid-template-rows: repeat(auto);
+}
+
+.contenedorBuscadorBody {
+    margin-top: 150px;
+    display:grid;
+    grid-template-rows: repeat(auto);
+}
+
+#buscador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#buscador input{
+    width: 700px;
+}
+#buscador svg {
+    color:#94BFBE;
+    border: 1px solid #94BFBE;
+    border-radius: 5px;
+    padding:5px;
+    background-color: #364652;
+    &:hover {
+        background-color: #94BFBE;
+        color: #364652;
+    }
+}
+#resultadoBuscador{
+    margin-top: 40px;
+    height: 668px;
+    display:grid;
+    grid-template-columns: repeat(3,500px);
+    justify-content: space-around;
+}
+#resultadoArtista {
+    border: 4px solid #94BFBE;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+#galeriaResultadoArtistas {
+    display:grid;
+    grid-template-columns: repeat(2, auto);
+    row-gap: 25px;
+}
+
+#tituloArtista{
+    grid-column: 1/span 2;
+    display: flex;
+    justify-self: center;
+    
+}
+
+#galeriaResultadoArtistas > #artista {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    justify-self: center;
+    padding: 10px 30px;
+    width: 100px;
+    border: 2px solid transparent;
+    overflow: hidden;
+        border-radius: 8px;
+    &:hover {
+        border: 2px solid #94BFBE;
+        border-radius: 8px;
+    }
+}
+
+#galeriaResultadoArtistas > #artista h2 {
+    text-align: center;
+}
+
+#galeriaResultadoArtistas > #artista img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+#resultadoListas {
+    border: 4px solid #94BFBE;
+    border-radius: 8px;
+    padding: 30px;
+    overflow-y: scroll;
+}
+
+#acordeonBuscador {
+    width: 95%;
+    margin-left: 10px;
+    
+}
+
+#anadirLista {
+    margin-left: 80%;
+    border: 1px solid #94BFBE;
+    border-radius: 5px;
+    background-color: #94BFBE;
+    &:hover{
+        background-color: #364652;
+    }
+}
+
+
+
+#tituloListas {
+    margin-top: -30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#cancion.cancionBuscador {
+    margin-left: 10px;
+    width:95%;
+}
+
+#cancionAcciones.buscador {
+    display: flex;
+    justify-self:flex-end;
+    margin-left:20%;
+    gap: 20px;
+    &:hover{
+        background-color: #94BFBE;
+    }
+}
+
+#resultadoCanciones {
+    border: 4px solid #94BFBE;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+#tituloCanciones {
+    margin-top: -10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#cancionesEncontradas {
+    display:flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow:hidden;
+}
+
+#cancionAcciones.buscadorCancion {
+    display: flex;
+    justify-self:flex-end;
+    margin-left:30%;
+    gap: 20px;
+    &:hover{
+        background-color: #94BFBE;
+    }
+}
+
+/* ESTILOS PARA VISTAARTISTA.HTML*/
+.artistaBody{
+    margin-top: 130px;
+    display: grid;
+    grid-template-columns: 600px  1fr;
+}
+#infoArtista {
+    margin-top: 30px;
+    padding-left: 300px;
+}
+#infoArtista img {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+}
+
+#ListadoCanciones{
+    display:grid;
+    grid-template-rows: repeat(auto);
+    overflow-y:scroll;
+    height: 500px;
+    padding:30px;
+}
+
+/* ESTILOS PARA LOGIN.HTML*/
+
+/*Contenedor general , diviimos la pagina en un layout de "3x3" */
+.contenedorLogin {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 10%;
+}
+/* Contenedor del encabezado, colocado en la segunda columna de la primera fila en nuestro layout grid */
+.loginLogo {
+    margin-top: 20px;
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+/* Contenedor del layout grid anidado dentro del contenedor de encabezado, creamos un layout
+ de 2 columnas dentro*/
+.logo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+/*Estilo para la imagen dentro del contenedor de Logo, este elemento coge por defecto la primera
+  columna del grid layout definido en el contenedor.*/
+.logo > img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+}
+/*Estilo para el h1 dentro del contenedor de Logo, este elemento coge por defecto la segunda
+  columna del grid layout definido en el contenedor.*/
+.logo > h1 {
+    padding:30px;
+    grid-column-start: 2;
+    font-family: Helvetica;
+    font-size: 70px;
+    
+}
+
+
+/* Contenedor del formulario ubicado en la "casilla central de la página" */
+.loginForm {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+/*Aplicamos estilos para los h1 hijos del contenedor con clase loginForm*/
+.loginForm > h1 {
+    grid-column: 1 /span 3;
+    text-align: center;
+}
+
+/* Estilo del formulario, aplicamos display flex y direccion flex de columna para listar los elementos y align-items para centrarlos. */
+.formularioLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Contenedor dentro del formulario, le damos un ancho definido en pixeles para que no ocupe el total del contenedor*/
+.loginInput {
+    display: grid;
+    width: 250px;
+    gap:25px;
+}
+/*Aplicamos estilo a los elementos <a> del formulario*/
+.formularioLogin a {
+    grid-column: 1 / span 2; /* Ocupa ambas columnas */
+    font-size: small;
+    margin-top: 10px;
+}
+
+/*Aplicamos estilo al boton del formulario*/
+.formularioLogin button {
+    font-family: Helvetica;
+    grid-column: 1 / span 2; /* Ocupa ambas columnas */
+    margin-top: 15px;
+    justify-self: center;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #364652;
+    font-weight: bold;
+    color: #94BFBE;
+    font-size: 14px;
+    border-color: #364652;
+    border-style: none;
+    box-shadow:0 0 1em #94BFBE;
+
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+}
+
+/* ESTILOS PARA ALTAUSUARIO.HTML*/
+
+/* Contenedor general de la pagina altausuario.html*/
+.contenedorAlta {
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    margin-bottom: 100px;
+}
+
+/*Seccion de encabezado de la página*/
+.divHeaderAlta {
+    grid-column: 1 / span 3;
+    display:grid;
+    grid-template-columns: auto auto;
+}
+
+#logoAlta {
+    display:grid;
+    grid-template-columns: 150px auto;
+}
+
+#logoAlta a>img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+#logoAlta>h1{
+    margin-top:50px;
+    grid-column: 2;
+    font-family: Helvetica;
+    font-size: 40px;
+}
+
+#tituloAlta {
+    margin-left: -10%;
+}
+
+.divFormularioAlta {
+    grid-row:2;
+    grid-column: 1/span 3;
+}
+
+.formularioAlta{
+    display:grid;
+    grid-template-columns: 550px 1fr 1fr;
+}
+
+#formularioCol1 {
+    grid-column: 1;
+    grid-row: 1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+}
+#formularioCol1 input[type="file"] {
+    width: 200px;
+    font-size: 21px;
+    border:1px solid transparent;
+}
+
+#formularioCol1 img {
+    width: 150px;
+    height: 150px;
+}
+
+#formularioCol2 {
+    grid-column: 2;
+    grid-row: 1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+#formularioCol2 input {
+    width: 250px;
+}
+
+#formularioCol2 label {
+    margin-right: 170px;
+}
+
+#formularioCol2 select {
+    width: 250px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #364652;
+    color: #94BFBE;
+}
+
+#formularioCol3 {
+    grid-column: 3;
+    grid-row: 1;
+    display:grid;
+    grid-template-rows: repeat(3,auto);
+    gap:20px;
+}
+
+#formularioCol3 input,textarea {
+    width: 250px;
+}
+
+#formCol3Fecha {
+    grid-row:1;
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+}
+#formCol3Fecha input {
+    width: 250px;
+}
+
+#formRadioSexo {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+#formRadioSexo input[type="radio"]{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+#formCol3Plan {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto;
+}
+#formCol3Plan input[type="radio"]{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+#premiumSeleccionado {
+    width: fit-content;
+    height: 0px;
+    visibility: hidden;
+    margin-left:5px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    opacity:0;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
+}
+#premiumSeleccionado input {
+    width: 450px;
+}
+#premiumSeleccionado[hidden] {
+    display: none;
+}
+
+
+#formularioRow2 {
+    margin-top: 150px;
+    grid-column: 1 /span 3;
+    grid-row: 2;
+    margin-left:700px;
+}
+#formularioRow2 input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+#formularioRegistroBtn{
+    height: 40px;
+    width: 150px;
+    margin-top: 15px;
+    margin-left: 100px;
+    background-color: #364652;
+    color: #94BFBE;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 1em #94BFBE;
+    padding: 0; /
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+}
+
+/*  ESTILOS PARA PLANESVIBE.HTML */
+.contenedorPlanes {
+    margin-bottom: 10%;
+}
+.contenedorPlanes #tituloPlanes {
+    padding-right: 300px;
+}
+
+#textoPlanes {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#textoPlanes> h3 {
+    width: 400px;
+}
+
+#planesBody {
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+#planStandard {
+    margin-left: 500px;
+}
+#planesBody li{
+    margin-bottom: 15px;
+
+}
+
+#planesBody ul {
+    padding: 30px;
+    width: fit-content;
+    border:4px solid #94BFBE;
+    border-radius: 8px;
+}
+
+#planPremium {
+    margin-left: 100px;
+}
+
+/*ESTILOS PARA SOBRENOSOTROS.HTML*/
+.contenedorSobreNosotros {
+    margin-bottom:10%;
+}
+
+#sobreNosotrosBody {
+    text-align: center;
+    justify-content: center;
+}
+
+#sobreNosotrosBody h2 {
+    width: 900px;
+    padding-left: 30%;
+    margin-bottom: 50px;
+}
+
+/* ESTILOS PARA CONTACTO.HTML */
+.contenedorContacto {
+    display:grid;
+    grid-template-columns: repeat(auto);
+}
+
+#tituloContacto {
+    margin-left: -10%;
+}
+
+#contactoBody {
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+}
+#textoContacto {
+    grid-column: 1 /span 2;
+}
+#textoContacto h2 {
+    width: 560px;
+    margin-left: 40%;
+}
+
+#contactoFormulario {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+    margin-left: 300px;
+    padding: 15px;
+    border: 4px solid #94BFBE;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#contactoFormulario form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#contactoFormulario form>textarea {
+    width: 100%;
+    height: 90px;
+}
+
+#contactoFormulario form>button {
+    height: 40px;
+    width: 150px;
+    margin-left: 130px;
+    background-color: #364652;
+    color: #94BFBE;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 1em #94BFBE;
+    padding: 0; /
+    &:active { /*Cuando se pulsa el boton cambia el color de fondo del boton*/
+        background-color: aqua;
+    }
+    &:hover {
+        border: #94BFBE solid 1px;
+        background:#364652;
+    }
+}
+
+#datosContacto {
+    margin-top: 40px;
+    margin-left: 30%;
+    padding:15px;
+}
+
+/*ESTILOS PARA AVISOLEGAL.HTML Y POLITICAPRIVACIDAD.HTML*/
+#tituloAviso {
+    margin-left: -10%;
+}
+
+#avisoBody {
+    margin-left: 30%;
+    margin-bottom: 50px;
+}
+
+#avisoBody p{
+    width: 800px;
+}
+
+#avisoBody li{
+    width: 800px;
+}
+
+/*ESTILOS PARA EL MAPA WEB*/
+.mapaWebBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.mapaWebBody ul{
+    border: 4px solid #94BFBE;
+    border-radius: 8px;
+    padding: 15px 90px;
+}
+
+.mapaWebBody a{
+    text-decoration: none;
+    border:2px solid transparent;
+        border-radius: 8px;
+    
+    &:hover {
+        border:2px solid #94BFBE;
+        border-radius: 8px;
+    }
+}
+
+
+/*ESTILOS PARA EL FOOTER*/
+footer {
+    bottom:0px;
+    width: 100%;
+    display:grid;
+    background-color: #364652;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footerInfo {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+#footerInfoLogo {
+    grid-column: 1;
+    text-align: center;
+    padding:30px;
+}
+
+#footerInfoLogo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+#footerInfoTexto {
+    grid-column: 2;
+    padding:10px;
+}
+
+.footerAboutUs {
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+    padding:10px;
+    margin-left: 100px;
+    gap:5px;
+}
+
+.footerContactUs {
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    margin-left: 100px;
+}
+
+#footerContactUsRRSS {
+    margin-top: 20px; 
+    margin-bottom: 20px;
+}
+
+#footerContactUsRRSS img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+#contactUsAvisoLegal {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+
+
+/*ESTILOS PARA EL REPRODUCTOR DE AUDIO*/
+.reproductorMusica {
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    margin-bottom: 30px;
+    margin-top: 30px; 
+} 
+.reproductorMusica audio {
+    width: 700px;
+}
+
+
+

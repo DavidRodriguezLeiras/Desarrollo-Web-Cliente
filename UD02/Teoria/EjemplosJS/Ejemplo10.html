@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="ejemplo10.css">
+    <title>Ejemplo 09: acceso a objetos mediante claves (Diccionarios)</title>
+</head>
+<body>
+    <form id="formulario" onsubmit="event.preventDefault()">
+        <label for="nombre">Nombre: </label>
+        <input name="nombre" id="nombre" type="text">
+
+        <label for="apellidos">Apellidos: </label>
+        <input name="apellidos" id="apellidos" type="text">
+
+        <label for="edad">Edad: </label>
+        <input name="edad" id="edad" type="number">
+
+        <button onclick="guardar()">Guardar</button>
+        <button onclick="borrar()">Borrar</button>
+        <button onclick="llenar()">Llenar</button>
+    </form>
+    <script language="JavaScript" src="ejemplo10.js"></script>
+</body>
+</html>

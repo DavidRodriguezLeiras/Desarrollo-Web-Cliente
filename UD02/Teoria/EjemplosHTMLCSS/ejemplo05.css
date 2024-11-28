@@ -1,0 +1,50 @@
+table,th,td {
+    border: 1px solid black;
+}
+
+/*Aplicamos selector de atributos*/
+th[colspan],td[rowspan] {
+    background-color: beige;
+}
+
+/*Aplicamos selector de atributos 
+en funcion de valor del atributo*/
+td[colspan="2"] {
+    background-color: paleturquoise;
+}
+
+/*Aplicamos un selector de atributos a los
+elementos que NO tengan ese atributo*/
+td:not([colspan]) {
+    background-color: azure;
+}
+
+/*Aplicamos un selector de atributos indicando un
+valor aproximado para el mismo 
+~="" nos indica que ese atributo contiene ese texto parcialmente*/
+img[alt~="alt"] {
+    width: 200px;
+    height: 50px;
+}
+
+/*Estilos para los distintos estados del hipervinculo */
+
+/*Cuando no haya sido visitado*/
+a:link {
+    color: blue;
+}
+
+/*Cuando ya fue visitado*/
+a:visited {
+    color:orangered;
+}
+
+/*Cuando pasemos el raton por encima*/
+a:hover {
+    color:darkturquoise;
+}
+
+/*Cuando este activo*/
+a:active {
+    color:green;
+}

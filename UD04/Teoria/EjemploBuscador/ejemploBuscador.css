@@ -1,0 +1,36 @@
+/*Estilos del cuerpo de la página*/
+body {
+    font-family: 'Trebuchet MS';
+    margin:30px;
+}
+
+/* Estilos del div principal ("contenido")*/
+#contenido {
+    width: 500px;
+}
+
+/* Estilos del campo de texto del buscador*/
+
+#busqueda {
+    width: 100%;
+    padding: 10px;
+    font-size: 16pt;
+    margin-bottom: 10px;
+}
+
+/* Estilo de la lista de sugerencias y sus items*/
+#sugerencias {
+    list-style-type:none ;
+    padding: 0px;
+    margin: 0px;
+}
+
+#sugerencias li {
+    padding:10px;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+
+#sugerencias li:hover {
+    background-color: #f1f1f1;
+}
