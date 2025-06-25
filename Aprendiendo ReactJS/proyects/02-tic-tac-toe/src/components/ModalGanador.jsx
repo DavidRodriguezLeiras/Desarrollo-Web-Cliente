@@ -2,7 +2,7 @@ import { Cuadrado } from "./Cuadrado";
 
 export function ModalGanador({ganador,resetJuego}) {
   if (ganador === null) return null;
-  const textoGanador = ganador === false ? "Empate" : "Gano " + ganador
+  const textoGanador = ganador === false ? "Empate" : "Ganó "
   return (
     <section className="winner">
       <div className="text">

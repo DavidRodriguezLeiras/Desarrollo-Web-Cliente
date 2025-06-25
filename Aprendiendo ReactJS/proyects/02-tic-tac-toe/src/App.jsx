@@ -10,10 +10,17 @@ import { Tablero } from "./components/Tablero"
 
 function App() {
   //Estado del tablero, que define la posicion de las casillas
-  const [tablero,setTablero]=useState(Array(9).fill(null)) //Estado del tablero
+  const [tablero,setTablero]=useState(()=>{
+    const tableroDeLS=window.localStorage.getItem('tablero')
+    return tableroDeLS ? JSON.parse(tableroDeLS) : Array(9).fill(null)
+  }) //Estado del tablero
 
   //Estado del turno, que indica el turno en el que nos encontramos
-  const [turno,setTurno]=useState(turnos.x) //Estado del turno, en funcion del estado 
+  const [turno,setTurno]=useState(()=>{
+    const turnoDeLS=window.localStorage.getItem('turno')
+    if(turnoDeLS) return turnoDeLS 
+    return turnos.x
+  }) 
 
   // Definimos un estado para comprobar si alguien gano el juego. null sera que no hay ganador, false empate y "x" o "o" sera el turno que ha ganado
   const [ganador,setGanador]=useState(null) 
@@ -22,6 +29,8 @@ function App() {
     setGanador(null)
     setTurno(turnos.x)
     setTablero(Array(9).fill(null))
+    window.localStorage.removeItem('tablero')
+    window.localStorage.removeItem('turno')
   }
 
   //Funcion que actualiza el tablero cuando se realiza una accion
@@ -34,9 +43,14 @@ function App() {
     //Añado el turno actual al Cuadrado de indice coincidente.
     nuevoTablero[indice]=turno
     //Actualizo el estado del tablero.
-    setTablero(nuevoTablero)    
+    setTablero(nuevoTablero)
+
     const nuevoTurno = turno === turnos.x ? turnos.o : turnos.x //Asignamos a nuevo turno el valor contrario al estado actual
     setTurno(nuevoTurno); // Actualizamos a traves de la funcion de actualizar el estado el nuevo turno
+
+    //Guardamos partida en LS
+    window.localStorage.setItem('tablero',JSON.stringify(nuevoTablero))
+    window.localStorage.setItem('turno',nuevoTurno)
 
     //Comprobamos si hay un ganador
     const jugadorGanador = checkGanador(nuevoTablero)
