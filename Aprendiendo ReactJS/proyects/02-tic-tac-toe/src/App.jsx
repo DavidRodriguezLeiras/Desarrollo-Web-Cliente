@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import confetti from "canvas-confetti"
 import { Cuadrado } from "./components/Cuadrado"
 import {  turnos } from "./constantes"
@@ -48,9 +48,7 @@ function App() {
     const nuevoTurno = turno === turnos.x ? turnos.o : turnos.x //Asignamos a nuevo turno el valor contrario al estado actual
     setTurno(nuevoTurno); // Actualizamos a traves de la funcion de actualizar el estado el nuevo turno
 
-    //Guardamos partida en LS
-    window.localStorage.setItem('tablero',JSON.stringify(nuevoTablero))
-    window.localStorage.setItem('turno',nuevoTurno)
+    
 
     //Comprobamos si hay un ganador
     const jugadorGanador = checkGanador(nuevoTablero)
@@ -63,6 +61,18 @@ function App() {
       setGanador(false);
     }
   } 
+
+  /*
+    Esto es useEffect, se usa para ejecutar codigo al renderizarse un componente, este va en el cuerpo del componente.
+    useEffect puede recibir un array de parametros o no recibirlo, los casos que se pueden dar son los siguientes:
+    -Sin parametros: este salta cada vez que se renderiza el componente
+    -Array vacio: salta useEffect la primera vez que se inicia el componente
+    -array con parámetros(funciones o variables): salta useEffect cada vez que hay cambios sobre los parametros
+  */
+  useEffect(()=>{
+    window.localStorage.setItem('tablero',JSON.stringify(nuevoTablero))
+    window.localStorage.setItem('turno',nuevoTurno)
+  },[turno,tablero])
 
   return (
     <main className='board'>
