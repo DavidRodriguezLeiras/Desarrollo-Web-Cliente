@@ -1,8 +1,8 @@
-import { Cuadrado } from "./Cuadrado";
+import { Cuadrado } from './Cuadrado'
 
-export function Tablero({tablero,actualizarTablero}) {
+export function Tablero ({ tablero, actualizarTablero }) {
   return (
-    <section className="game">
+    <section className='game'>
       {tablero.map((_, index) => {
         return (
           <Cuadrado
@@ -12,8 +12,8 @@ export function Tablero({tablero,actualizarTablero}) {
           >
             {tablero[index]}
           </Cuadrado>
-        );
+        )
       })}
     </section>
-  );
+  )
 }
